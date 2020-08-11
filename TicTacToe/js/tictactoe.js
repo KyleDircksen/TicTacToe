@@ -152,7 +152,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         x2 = coordX2,
         //this line indicates where the end of a lines y axis is
         y2 = coordY2,
-        //this variable stores temporary x axis data we update in the animaation loop
+        //this variable stores temporary x axis data we update in the animation loop
         x = x1,
         //this variable stores temporary y axis data we update in the animation loop
         y = y1;
@@ -184,6 +184,12 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
             if (y < y2) { y += 10; }
             //this condition cancels our animation loop if it reaches the end points
             if (x >= x2 && y >= y2) { cancelAnimationFrame(animationLoop); }
+        }
+        //this condition allows for the line at position 6, 4, 2 to be drawn
+        if (x1 <= x2 && y1 >= y2) {
+            if (x < x2) { x += 10; }
+            if (y > y2) { y -= 10; }
+            if (x >= x2 && y <= y2) { cancelAnimationFrame(animationLoop); } 
         }
     }
 
